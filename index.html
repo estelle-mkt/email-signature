@@ -165,7 +165,7 @@
                         <!-- 3. 底部免责条款（文字，不截图） -->
                         <table id="sig-disclaimer" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse; margin-top: 0;">
                             <tr>
-                                <td style="border-top: 1px solid #e5e7eb; padding-top: 12px; font-size: 10.5px; color: #9ca3af; line-height: 1.55; font-family: sans-serif;">
+                                <td style="border-top: 1px solid #e5e7eb; padding-top: 6px; font-size: 10.5px; color: #9ca3af; line-height: 1.55; font-family: sans-serif;">
                                     本邮件包含保密信息，若您并非收件人，请删除本邮件并通知发件人。未经授权，禁止使用、复制或披露本邮件全部或部分内容。<br>
                                     This email may contain confidential information. If you are not the intended recipient, please delete it and notify the sender. Unauthorized use, disclosure, or copying of this email or any part of it is strictly prohibited.
                                 </td>
@@ -192,21 +192,20 @@
 
 <script>
     const addressDictionary = {
-        "上海Shanghai Office": "Units 1001-1002A, Tower 1, Century Metropolis, No. 1229 Century Avenue, Pudong New Area, Shanghai, China",
-        "香港Hong Kong Office": "Room 1202–1204, 12/F, 1111 King's Road, Taikoo Shing, Eastern District, Hong Kong",
-        "深圳Shenzhen Office": "35F, East Tower, Baidu International Building, Nanshan District, Shenzhen, Guangdong, China",
-        "杭州Hangzhou Office": "Room 907, Minghao Building, No. 1688 Binsheng Road, Binjiang District, Hangzhou, Zhejiang, China",
-        "义乌Yiwu Office": "Room 2511, 25/F, Hongji Building, No. 699 Chengbei Road, Yiwu, Zhejiang, China",
-        "广州Guangzhou Office": "Unit 1703B, Guangzhou ICC, No. 235 Tianhe North Road, Tianhe District, Guangzhou, Guangdong, China",
-        "东莞Dongguan Office": "Unit 3104, Tower B, Building 9, UCC Universal Financial Center, Nancheng District, Dongguan, Guangdong, China",
-         <!-- "佛山Foshan Office": "Foshan Office (选址中，待更新)", -->
-        "迪拜 Dubai Office": "Unit GV-00-10-03-BC-32-0 Level 3, Gate Village Building 10, Dubai International Financial Centre, United Arab Emirates",
-        "马来西亚 Malaysia Office": "Suite 11 & 13, Level 23A, Menara Allianz Sentral, No. 203, Jalan Tun Sambanthan, Kuala Lumpur Sentral, 50470 Kuala Lumpur.",
-        "波兰 Poland Office": "Spaces Marszalkowska,ul. Marszalkowska 126/134, Warsaw,00-008, Poland",
-        "美国 USA Office": "Regus, 3420 Bristol Street, 6th Floor, Costa Mesa, California, 92626, United States of America",
-        "英国 UK Office": "Suite 4.29, 1 Cornhill, London EC3V 3ND",
-        "加拿大 Canada Office": "7030 Woodbine Avenue Suite 500 Markham ON L3R 6G2",
-        "新加坡 Singapore Office": "190 MIDDLE ROAD, #11-01, FORTUNE CENTRE, SINGAPORE 188979"
+        "上海 Shanghai": "Units 1001-1002A, Tower 1, Century Metropolis, No. 1229 Century Avenue, Pudong New Area, Shanghai, China",
+        "香港 Hong Kong": "Room 1202–1204, 12/F, 1111 King's Road, Taikoo Shing, Eastern District, Hong Kong",
+        "深圳 Shenzhen": "35F, East Tower, Baidu International Building, Nanshan District, Shenzhen, Guangdong, China",
+        "杭州 Hangzhou": "Room 907, Minghao Building, No. 1688 Binsheng Road, Binjiang District, Hangzhou, Zhejiang, China",
+        "义乌 Yiwu": "Room 2511, 25/F, Hongji Building, No. 699 Chengbei Road, Yiwu, Zhejiang, China",
+        "广州 Guangzhou": "Unit 1703B, Guangzhou ICC, No. 235 Tianhe North Road, Tianhe District, Guangzhou, Guangdong, China",
+        "东莞 Dongguan": "Unit 3104, Tower B, Building 9, UCC Universal Financial Center, Nancheng District, Dongguan, Guangdong, China",
+        "迪拜 Dubai": "Unit GV-00-10-03-BC-32-0 Level 3, Gate Village Building 10, Dubai International Financial Centre, United Arab Emirates",
+        "马来西亚 Malaysia": "Suite 11 & 13, Level 23A, Menara Allianz Sentral, No. 203, Jalan Tun Sambanthan, Kuala Lumpur Sentral, 50470 Kuala Lumpur.",
+        "波兰 Poland": "Spaces Marszalkowska,ul. Marszalkowska 126/134, Warsaw,00-008, Poland",
+        "美国 USA": "Regus, 3420 Bristol Street, 6th Floor, Costa Mesa, California, 92626, United States of America",
+        "英国 UK": "Suite 4.29, 1 Cornhill, London EC3V 3ND",
+        "加拿大 Canada": "7030 Woodbine Avenue Suite 500 Markham ON L3R 6G2",
+        "新加坡 Singapore": "190 MIDDLE ROAD, #11-01, FORTUNE CENTRE, SINGAPORE 188979"
     };
 
     let mobileNumbers = [""];
@@ -218,7 +217,6 @@
         titleCounter: document.getElementById('title-counter'),
         mobileContainer: document.getElementById('mobile-list-container'),
         addMobileBtn: document.getElementById('btn-add-mobile'),
-        officeInput: document.getElementById('input-office'),
         citySelect: document.getElementById('select-city'),
         sigName: document.getElementById('sig-name'),
         sigTitle: document.getElementById('sig-title'),
@@ -239,7 +237,7 @@
             const opt = document.createElement('option');
             opt.value = cityKey;
             opt.textContent = cityKey;
-            if (cityKey === "Shanghai Office") opt.selected = true;
+            if (cityKey === "上海 Shanghai") opt.selected = true;
             el.citySelect.appendChild(opt);
         });
 
@@ -253,7 +251,6 @@
             el.titleCounter.textContent = `${e.target.value.length}/50`;
             syncDataToPreview();
         });
-        el.officeInput.addEventListener('input', syncDataToPreview);
         el.citySelect.addEventListener('change', syncDataToPreview);
 
         el.addMobileBtn.addEventListener('click', () => {
@@ -302,8 +299,7 @@
                 // Restore disclaimer
                 el.sigDisclaimer.style.display = '';
                 const base64 = canvas.toDataURL('image/png');
-                const disclaimerHtml = el.sigDisclaimer.outerHTML;
-                const combinedHtml = `<img src="${base64}" style="max-width:620px;display:block;border:none;margin-bottom:0;"><hr style="border:none;border-top:1px solid #e5e7eb;margin:0;">${disclaimerHtml}`;
+                const combinedHtml = `<img src="${base64}" style="max-width:620px;display:block;border:none;margin:0;"><p style="border-top:1px solid #e5e7eb;padding-top:6px;margin:0;font-size:10.5px;color:#9ca3af;line-height:1.55;font-family:sans-serif;">本邮件包含保密信息，若您并非收件人，请删除本邮件并通知发件人。未经授权，禁止使用、复制或披露本邮件全部或部分内容。<br>This email may contain confidential information. If you are not the intended recipient, please delete it and notify the sender. Unauthorized use, disclosure, or copying of this email or any part of it is strictly prohibited.</p>`;
                 await navigator.clipboard.write([new ClipboardItem({
                     'text/html': new Blob([combinedHtml], { type: 'text/html' })
                 })]);
@@ -364,15 +360,13 @@
         el.sigTitle.textContent = el.titleInput.value.trim() || "Growth Marketing Specialist";
 
         let contactTokens = mobileNumbers.filter(num => num.trim() !== '');
-        const officeVal = el.officeInput.value.trim();
-        if (officeVal) contactTokens.push(officeVal);
 
         el.sigPhoneRow.textContent = contactTokens.length > 0
             ? contactTokens.join(' | ')
             : "+86 13751013735 | +852 5689 1234";
 
         const city = el.citySelect.value;
-        el.sigAddress.textContent = addressDictionary[city] || addressDictionary["Shanghai Office"];
+        el.sigAddress.textContent = addressDictionary[city] || addressDictionary["上海 Shanghai"];
     }
 
     async function executionRichCopy() {
