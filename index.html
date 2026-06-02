@@ -254,7 +254,7 @@
         el.citySelect.addEventListener('change', syncDataToPreview);
 
         el.addMobileBtn.addEventListener('click', () => {
-            if (mobileNumbers.length > 2) {
+            if (mobileNumbers.length < 2) {
                 mobileNumbers.push("");
                 renderMobileFormComponents();
                 syncDataToPreview();
@@ -351,7 +351,7 @@
             }
             el.mobileContainer.appendChild(rowDiv);
         });
-        el.addMobileBtn.style.display = mobileNumbers.length >= 3 ? 'none' : 'inline-flex';
+        el.addMobileBtn.style.display = mobileNumbers.length >= 2 ? 'none' : 'inline-flex';
     }
 
     function syncDataToPreview() {
