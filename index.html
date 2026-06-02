@@ -254,7 +254,7 @@
         el.citySelect.addEventListener('change', syncDataToPreview);
 
         el.addMobileBtn.addEventListener('click', () => {
-            if (mobileNumbers.length < 2) {
+            if (mobileNumbers.length > 1) {
                 mobileNumbers.push("");
                 renderMobileFormComponents();
                 syncDataToPreview();
